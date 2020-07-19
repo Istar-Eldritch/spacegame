@@ -1,0 +1,9 @@
+(
+  axes: {},
+  actions: {
+      "turn_left": [ [Key(Left)], [Controller(0, DPadLeft)] ],
+      "turn_right": [ [Key(Right)], [Controller(0, DPadRight)] ],
+      "accelerate": [ [Key(Up)], [Controller(0, DPadUp)] ],
+      "break": [ [Key(Down)], [Controller(0, DPadDown)] ]
+  },
+)

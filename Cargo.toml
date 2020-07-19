@@ -1,0 +1,15 @@
+[package]
+name = "spacegame"
+version = "0.0.1"
+authors = ["Ruben Paz <me@ruben.io>"]
+edition = "2018"
+
+[dependencies]
+amethyst = {version = "0.15.0", features = ["sdl_controller"] }
+log = { version = "0.4.8", features = ["serde"] }
+
+[features]
+default = ["vulkan"]
+empty = ["amethyst/empty"]
+metal = ["amethyst/metal"]
+vulkan = ["amethyst/vulkan"]

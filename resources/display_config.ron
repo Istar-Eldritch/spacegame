@@ -1,0 +1,4 @@
+(
+  title: "Spacegame",
+  dimensions: Some((640, 576)),
+)
