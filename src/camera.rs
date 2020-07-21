@@ -1,3 +1,4 @@
+use crate::components::Speed;
 use amethyst::{
     core::Transform,
     prelude::{Builder, WorldExt},
@@ -16,5 +17,6 @@ pub fn initialise_camera(world: &mut World) {
         .create_entity()
         .with(Camera::standard_2d(CAM_WIDTH, CAM_HEIGHT))
         .with(transform)
+        .with(Speed::default())
         .build();
 }

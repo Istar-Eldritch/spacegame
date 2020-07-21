@@ -1,5 +1,8 @@
+#![recursion_limit = "512"]
+
 use amethyst::{
-    core::transform::TransformBundle,
+    core::{math::Vector3, transform::TransformBundle},
+    ecs::{Component, DenseVecStorage, FlaggedStorage},
     input::{InputBundle, StringBindings},
     prelude::*,
     renderer::{
@@ -11,14 +14,17 @@ use amethyst::{
 };
 
 mod camera;
+mod components;
 mod debug_lines;
 mod ship;
 mod sprite_loader;
+mod systems;
 
 use camera::initialise_camera;
 use debug_lines::initialise_debug;
 use ship::{initialise_ship, Ship, ShipSystem};
 use sprite_loader::load_sprites;
+use systems::PositionSystem;
 
 pub struct GameState {}
 
@@ -59,7 +65,12 @@ fn main() -> amethyst::Result<()> {
         .with_bundle(render_bundle)?
         .with_bundle(TransformBundle::new())?
         .with_bundle(input_bundle)?
-        .with(ShipSystem, "ship_system", &["input_system"]);
+        .with(PositionSystem, "position_system", &[])
+        .with(
+            ShipSystem,
+            "ship_system",
+            &["input_system", "position_system"],
+        );
 
     let assets_dir = app_root.join("resources");
 
