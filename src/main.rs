@@ -22,7 +22,7 @@ mod systems;
 
 use camera::initialise_camera;
 use debug_lines::initialise_debug;
-use ship::{initialise_ship, Ship, ShipSystem};
+use ship::{initialise_ship, Ship, ShipMovementSystem};
 use sprite_loader::load_sprites;
 use systems::PositionSystem;
 
@@ -67,8 +67,8 @@ fn main() -> amethyst::Result<()> {
         .with_bundle(input_bundle)?
         .with(PositionSystem, "position_system", &[])
         .with(
-            ShipSystem,
-            "ship_system",
+            ShipMovementSystem,
+            "ship_movement_system",
             &["input_system", "position_system"],
         );
 

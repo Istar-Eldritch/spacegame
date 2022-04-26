@@ -5,7 +5,7 @@ authors = ["Ruben Paz <me@ruben.io>"]
 edition = "2018"
 
 [dependencies]
-amethyst = {version = "0.15.0", features = ["sdl_controller"] }
+amethyst = {version = "0.15.3", features = ["sdl_controller"] }
 log = { version = "0.4.8", features = ["serde"] }
 nalgebra = "0.21.1"
 

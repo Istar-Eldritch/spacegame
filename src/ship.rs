@@ -45,9 +45,9 @@ pub fn initialise_ship(world: &mut World) {
 
 /// This system handles the movement and rotation of the ship and camera
 #[derive(SystemDesc)]
-pub struct ShipSystem;
+pub struct ShipMovementSystem;
 
-impl<'s> System<'s> for ShipSystem {
+impl<'s> System<'s> for ShipMovementSystem {
     type SystemData = (
         WriteStorage<'s, Transform>,
         WriteStorage<'s, Speed>,
